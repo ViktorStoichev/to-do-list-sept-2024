@@ -8,9 +8,10 @@ app.engine("hbs", handlebars.engine({
     extname: "hbs",
   }));
 app.set("view engine", "hbs");
+app.set('views', 'src/views');
 
 app.get("/", (req, res) => {
-  res.send("Works");
+  res.render("home");
 });
 
 app.listen(port, () => console.log(`Server is listening on http://localhost:${port}...`));
