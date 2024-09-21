@@ -14,6 +14,6 @@ app.set('views', 'src/views');
 app.use(express.urlencoded({extended: false}));
 app.use(express.static('static'));
 
-app.use(routes)
+app.use(routes);
 
 app.listen(port, () => console.log(`Server is listening on http://localhost:${port}...`));

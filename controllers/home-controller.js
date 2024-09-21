@@ -14,4 +14,8 @@ router.post("/", (req, res) => {
   res.redirect('/');
 });
 
+router.all('*', (req, res) => {
+    res.render('404');
+});
+
 export const homeController = router;
