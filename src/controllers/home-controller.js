@@ -3,16 +3,16 @@ import { listService } from "../services/list-service.js";
 
 const router = Router();
 
-const list = await listService.getAll();
-
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
+  const list = await listService.getAll();
+  
   res.render("home", { list });
 });
 
 router.post("/", (req, res) => {
   const newTask = req.body;
 
-  console.log(newTask);
+  listService.create(newTask);
 
   res.redirect('/');
 });

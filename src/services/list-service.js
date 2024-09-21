@@ -6,7 +6,12 @@ const getAll = async () => {
     return list;
 }
 
+const create = (taskData) => {
+    return listData.create(taskData);
+}
+
 
 export const listService = {
     getAll,
+    create
 }
