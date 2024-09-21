@@ -17,6 +17,15 @@ router.post("/", (req, res) => {
   res.redirect('/');
 });
 
+router.get('/delete/:id', (req, res) => {
+  const id = req.params.id;
+
+  listService.deleteTask(id);
+  
+  res.redirect('/');
+})
+
+
 router.all('*', (req, res) => {
     res.render('404');
 });

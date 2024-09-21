@@ -14,7 +14,7 @@
   <h2>List:</h2>
   <ol>
     {{#each list}}
-        <li>{{todo}}: {{date}} / {{time}}</li>
+        <li>{{todo}}: {{date}} / {{time}} <a href="/delete/{{id}}" class="done">Done</a></li>
     {{else}}
         <h2>No listed tasks</h2>
     {{/each}}

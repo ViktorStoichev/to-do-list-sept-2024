@@ -28,7 +28,20 @@ async function create(listData) {
     return saveDatabase(data);
 }
 
+async function deleteTask(id) {
+    const data = await getDatabase();
+    const task = data.list.find(task => task.id === id);
+    const index = data.list.indexOf(task);
+    
+    data.list.splice(index, 1);
+    console.log(data.list);
+    
+
+    return saveDatabase(data);
+}
+
 export const listData = {
     getAll,
-    create
+    create,
+    deleteTask
 }
