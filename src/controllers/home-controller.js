@@ -1,9 +1,12 @@
 import { Router } from "express";
+import { listService } from "../services/list-service.js";
 
 const router = Router();
 
+const list = await listService.getAll();
+
 router.get("/", (req, res) => {
-  res.render("home");
+  res.render("home", { list });
 });
 
 router.post("/", (req, res) => {

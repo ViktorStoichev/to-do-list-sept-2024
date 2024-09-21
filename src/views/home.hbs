@@ -13,6 +13,10 @@
 <div id="list">
   <h2>List:</h2>
   <ol>
-    {{#each list}}{{/each}}
+    {{#each list}}
+        <li>{{todo}}: {{date}} / {{time}}</li>
+    {{else}}
+        <h2>No listed tasks</h2>
+    {{/each}}
   </ol>
 </div>
