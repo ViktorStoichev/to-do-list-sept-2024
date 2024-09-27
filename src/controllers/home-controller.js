@@ -1,26 +1,30 @@
 import { Router } from "express";
-import { listService } from "../services/list-service.js";
+
+import Task from "../models/Task.js";
 
 const router = Router();
 
 router.get("/", async (req, res) => {
-  const list = await listService.getAll();
+
+  const tasks = await Task.find().lean();  
   
-  res.render("home", { list });
+  res.render("home", { tasks });
 });
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   const newTask = req.body;
 
-  listService.create(newTask);
+  const task = await Task.create(newTask);
 
   res.redirect('/');
 });
 
-router.get('/delete/:id', (req, res) => {
-  const id = req.params.id;
+router.get('/delete/:id', async (req, res) => {
+    const id = req.params.id;
 
-  listService.deleteTask(id);
+  const task = await Task.findByIdAndDelete(id);
+  console.log(task);
+  
   
   res.redirect('/');
 })

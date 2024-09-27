@@ -13,8 +13,8 @@
 <div id="list">
   <h2>List:</h2>
   <ol>
-    {{#each list}}
-        <li>{{todo}}: {{date}} / {{time}} <a href="/delete/{{id}}" class="done">Done</a></li>
+    {{#each tasks}}
+        <li>{{this.todo}}: {{this.date}} / {{this.time}} <a href="/delete/{{this._id}}" class="done">Done</a></li>
     {{else}}
         <h2>No listed tasks</h2>
     {{/each}}
