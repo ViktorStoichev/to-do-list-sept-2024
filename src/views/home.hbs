@@ -1,20 +1,23 @@
 <h1>To Do list</h1>
 <div id="form">
-  <form method="POST">
-    <label for="todo">To Do:</label>
-    <input type="text" name="todo" id="todo" />
-    <label for="date">Date:</label>
-    <input type="date" name="date" id="date" />
-    <label for="time">Time:</label>
-    <input type="text" name="time" id="time" />
-    <input type="submit" value="Submit" />
-  </form>
+    <form method="POST">
+        <label for="todo">To Do:</label>
+        <input type="text" name="todo" id="todo" />
+        <label for="date">Date:</label>
+        <input type="date" name="date" id="date" />
+        <label for="time">Time:</label>
+        <input type="text" name="time" id="time" />
+        <input type="submit" value="Submit" />
+    </form>
 </div>
 <div id="list">
   <h2>List:</h2>
   <ol>
     {{#each tasks}}
-        <li>{{this.todo}}: {{this.date}} / {{this.time}} <a href="/delete/{{this._id}}" class="done">Done</a></li>
+        <li>{{this.todo}}: {{this.date}} / {{this.time}} 
+            <a href="/delete/{{this._id}}" class="done">Done</a>
+            <a href="/edit/{{this._id}}" class="done">Update</a>
+        </li>
     {{else}}
         <h2>No listed tasks</h2>
     {{/each}}

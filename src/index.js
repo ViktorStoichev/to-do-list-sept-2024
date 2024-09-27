@@ -15,13 +15,9 @@ try {
 const app = express();
 const port = 5000;
 
-const hbs = handlebars.create({
+app.engine("hbs", handlebars.engine({
     extname: "hbs",
-    allowProtoPropertiesByDefault: true,   // Enable prototype properties globally
-    allowProtoMethodsByDefault: true       // Optionally, allow methods as well
-});
-
-app.engine("hbs", hbs.engine);
+  }));
 app.set("view engine", "hbs");
 app.set('views', 'src/views');
 

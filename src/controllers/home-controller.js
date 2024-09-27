@@ -14,21 +14,32 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   const newTask = req.body;
 
-  const task = await Task.create(newTask);
+  await Task.create(newTask);
 
   res.redirect('/');
 });
 
 router.get('/delete/:id', async (req, res) => {
-    const id = req.params.id;
+  const id = req.params.id;
 
-  const task = await Task.findByIdAndDelete(id);
-  console.log(task);
-  
+  await Task.findByIdAndDelete(id);
   
   res.redirect('/');
-})
+});
 
+router.get('/edit/:id', async (req, res) => {
+    const id = req.params.id;
+    const task = await Task.findById(id).lean();
+  
+    res.render("edit", { task });
+});
+
+router.post('/edit/:id', async (req, res) => {
+    const id = req.params.id;
+    await Task.findByIdAndUpdate(id, req.body);
+    
+    res.redirect('/');
+});
 
 router.all('*', (req, res) => {
     res.render('404');
