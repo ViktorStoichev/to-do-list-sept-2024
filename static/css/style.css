@@ -1,25 +1,39 @@
 body {
     color: rgb(210, 159, 30);
-    background-color: purple;
+    background-color: lightgray;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+header {
+    background-color: rgb(180, 180, 180);
+    width: 100%;
 }
 
 h1 {
     font-size: 60px;
     text-align: center;
+    color: rgb(101, 101, 101);
 }
 
 #form {
-    width: 600px;
+    width: 1200px;
     height: 450px;
     background-color: rgb(40, 40, 40);
     margin: auto;
     padding-top: 20px;
     padding-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#form:hover {
+    transform: scale(1.1);
 }
 
 #form input {
     display: block;
-    width: 80%;
+    width: 90%;
     margin-top: 5px;
     margin-bottom: 30px;
     margin-left: 50px;
@@ -36,7 +50,7 @@ h1 {
 #form input[type="submit"] {
     width: 50%;
     height: 50px;
-    margin-left: 140px;
+    margin-left: 300px;
     background-color: rgb(210, 159, 30);
     color: black;
     border: none;
@@ -54,16 +68,33 @@ h1 {
     cursor: pointer;
 }
 
-#list {
+.list-container {
+    display: flex;
+}
+
+#list, #done-tasks {
+    display: inline-block;
     background-color: rgb(60, 60, 60, 0.8);
-    width: 600px;
+    width: 800px;
     height: 600px;
     margin: auto;
-    color: rgb(210, 159, 30);
+    margin-top: 50px;
+    color: rgb(40, 40, 40);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow-y: auto;
+}
+
+#list:hover, #done-tasks:hover {
+    transform: scale(1.1);
 }
 
 footer {
-    font-size: 30px;
+    background-color: rgb(180, 180, 180);
+    margin-top: 100px;
+    height: 80px;
+    font-size: 60px;
+    text-align: center;
+    color: rgb(101, 101, 101);
 }
 
 div {
@@ -81,8 +112,7 @@ ol {
     margin-left: 30px;
 }
 
-.done {
-    background-color: rgb(210, 159, 30);
+.done, .edit {
     color: black;
     border: none;
     border-radius: 24px;
@@ -91,6 +121,14 @@ ol {
     font-size: 20px;
     font-weight: bold;
     box-shadow: 5px 5px 10px rgb(101, 101, 101);
+}
+
+.edit {
+    background-color: rgb(210, 159, 30);
+}
+
+.done {
+    background-color: green;
 }
 
 li {

@@ -1,4 +1,3 @@
-<h1>To Do list</h1>
 <div id="form">
     <form method="POST">
         <label for="todo">To Do:</label>
@@ -10,16 +9,31 @@
         <input type="submit" value="Submit" />
     </form>
 </div>
-<div id="list">
-  <h2>List:</h2>
-  <ol>
-    {{#each tasks}}
-        <li>{{this.todo}}: {{this.date}} / {{this.time}} 
-            <a href="/delete/{{this._id}}" class="done">Done</a>
-            <a href="/edit/{{this._id}}" class="done">Update</a>
-        </li>
-    {{else}}
-        <h2>No listed tasks</h2>
-    {{/each}}
-  </ol>
+<div class="list-container">
+    <div id="list">
+        <h2>List:</h2>
+        <ol>
+            {{#each tasks}}
+            <li>{{this.todo}}: {{this.date}} / {{this.time}}
+                <a href="/delete/{{this._id}}" class="done">Done</a>
+                <a href="/edit/{{this._id}}" class="edit">Update</a>
+            </li>
+            {{else}}
+            <h2>No listed tasks</h2>
+            {{/each}}
+        </ol>
+    </div>
+    <div id="done-tasks">
+        <h2>Done tasks:</h2>
+        {{!-- <ol>
+            {{#each tasks}}
+            <li>{{this.todo}}: {{this.date}} / {{this.time}}
+                <a href="/delete/{{this._id}}" class="done">Done</a>
+                <a href="/edit/{{this._id}}" class="done">Update</a>
+            </li>
+            {{else}}
+            <h2>No listed tasks</h2>
+            {{/each}}
+        </ol> --}}
+    </div>
 </div>
