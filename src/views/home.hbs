@@ -1,6 +1,7 @@
 <div id="form">
+    <h2>TO DO</h2>
     <form method="POST">
-        <label for="todo">To Do:</label>
+        <label for="todo">Task:</label>
         <input type="text" name="todo" id="todo" />
         <label for="date">Date:</label>
         <input type="date" name="date" id="date" />
@@ -11,11 +12,11 @@
 </div>
 <div class="list-container">
     <div id="list">
-        <h2>List:</h2>
+        <h2>Tasks to do:</h2>
         <ol>
             {{#each tasks}}
             <li>{{this.todo}}: {{this.date}} / {{this.time}}
-                <a href="/delete/{{this._id}}" class="done">Done</a>
+                <a href="/done/{{this._id}}" class="done">Done</a>
                 <a href="/edit/{{this._id}}" class="edit">Update</a>
             </li>
             {{else}}
@@ -25,15 +26,14 @@
     </div>
     <div id="done-tasks">
         <h2>Done tasks:</h2>
-        {{!-- <ol>
-            {{#each tasks}}
-            <li>{{this.todo}}: {{this.date}} / {{this.time}}
-                <a href="/delete/{{this._id}}" class="done">Done</a>
-                <a href="/edit/{{this._id}}" class="done">Update</a>
+        <ol>
+            {{#each doneTasks}}
+            <li><p class="line-through">{{this.todo}}: {{this.date}} / {{this.time}}</p>
+                <a href="/delete/{{this._id}}" class="delete">Delete</a>
             </li>
             {{else}}
             <h2>No listed tasks</h2>
             {{/each}}
-        </ol> --}}
+        </ol>
     </div>
 </div>
